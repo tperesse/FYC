@@ -3,6 +3,6 @@ terraform {
         encrypt = true
         bucket  = "projet-annuel"
         region  = "eu-west-3"
-        key     = "projet.tfstate"
+        key     = "fyc.tfstate"
     }
 }
