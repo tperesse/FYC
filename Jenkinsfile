@@ -1,7 +1,7 @@
 node {
     String credentialsId = 'awsCredentials'
 
-    if (env.BRANCH_NAME == 'main') {
+    if (env.BRANCH_NAME == 'master') {
         stage('checkout') {
             cleanWs()
             checkout scm
