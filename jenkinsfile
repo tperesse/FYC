@@ -1,7 +1,7 @@
 node {
     String credentialsId = 'awsCredentials'
 
-    if (env.BRANCH_NAME == 'master') {
+    if (env.BRANCH_NAME == 'main') {
         stage('checkout') {
             cleanWs()
             checkout scm
@@ -9,14 +9,16 @@ node {
 
         // Run terraform init
         stage('init') {
-            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: credentialsId, accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
-            sh 'terraform init'
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: credentialsId, accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                sh 'terraform init'
+            }
         }
 
         // Run terraform plan
         stage('plan') {
-            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: credentialsId, accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
-            sh 'terraform plan'
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: credentialsId, accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                sh 'terraform plan'
+            }
         }
 
         // // Run terraform apply
