@@ -1,6 +1,7 @@
 desktop.ini
 .DS_Store
 .terraform
+.terraform*
 ssh-keys
 *.tfstate.backup
 *.tfstate
