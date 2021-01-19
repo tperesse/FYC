@@ -12,7 +12,7 @@ node {
         // Run terraform init
         stage('init') {
                 sh 'ls'
-                // sh 'terraform init'
+                sh 'terraform init'
         }
     }
 
