@@ -14,6 +14,7 @@ node {
                 sh 'ls'
                 // sh 'terraform init'
         }
+    }
 
         // // Run terraform plan
         // stage('plan') {
