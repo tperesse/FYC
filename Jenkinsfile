@@ -19,10 +19,5 @@ node {
         stage('plan') {
             sh 'terraform plan'
         }
-
-        // Run terraform apply
-        stage('apply') {
-            sh 'terraform apply -auto-approve'
-        }
     }
 }
